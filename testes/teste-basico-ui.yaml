@@ -1,0 +1,31 @@
+# Teste básico de UI — exercita as interações que qualquer QA manual faria ao
+# abrir uma tela pela primeira vez: clicar, pesquisar, rolar, voltar, recarregar.
+# Não depende de nenhuma regra de negócio — só do comportamento básico do browser.
+#
+# Troque `target_url` pela tela que você quer exercitar e rode com:
+#   agente-qa run testes/teste-basico-ui.yaml --mode=visivel
+
+label: "Teste básico de UI — navegação e interações elementares"
+target_url: "https://pt.wikipedia.org/"
+
+steps:
+  - "Abrir a página inicial e esperar ela carregar por completo."
+  - "Olhar a tela: identificar o conteúdo principal, o menu/cabeçalho, a barra de pesquisa e os botões visíveis."
+  - "Rolar a página até o fim, observando se o conteúdo continua legível e bem alinhado enquanto rola."
+  - "Rolar de volta até o topo."
+  - "Digitar um termo qualquer na barra de pesquisa (ex.: \"Brasil\") e disparar a busca (botão de pesquisar ou Enter)."
+  - "Esperar a página de resultados/destino carregar e conferir se ela corresponde ao termo pesquisado."
+  - "Clicar num link ou botão relevante da página atual e esperar a navegação concluir."
+  - "Voltar para a página anterior (histórico do browser) e verificar se ela é restaurada no estado esperado."
+  - "Recarregar a página atual e verificar se ela volta ao mesmo estado, sem erro nem tela em branco."
+  - "Clicar em pelo menos um outro botão ou controle interativo visível (ex.: abrir um menu, expandir uma seção) e observar a reação da interface."
+  - "Ao longo de todos os passos, checar os erros de console/rede após as ações principais."
+
+evaluation: >
+  Cada interação produz uma resposta visível e coerente da interface: cliques
+  navegam ou abrem/fecham elementos, a pesquisa leva a resultados relacionados
+  ao termo, o scroll é fluido e não revela textos cortados, sobrepostos ou
+  desalinhados. Voltar e recarregar restauram a página sem tela em branco, sem
+  travar e sem perder o conteúdo esperado. Não há erros no console nem respostas
+  HTTP com status >= 400 disparadas pelas ações. Nenhum clique fica "morto" (sem
+  efeito) e nenhum controle visível deixa de responder.

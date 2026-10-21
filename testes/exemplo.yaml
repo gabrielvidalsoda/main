@@ -1,0 +1,15 @@
+# Teste de exemplo — sirva de molde para os seus próprios testes.
+# Rode com: agente-qa run testes/exemplo.yaml --mode=visivel
+
+label: "Exemplo — página de domínio de exemplo"
+target_url: "https://example.com"
+
+steps:
+  - "Abrir a página inicial."
+  - "Ler o título e o texto principal da página."
+  - "Verificar se existe algum link na página e, se existir, conferir para onde ele aponta (sem precisar clicar)."
+
+evaluation: >
+  A página carrega sem erro, sem tela em branco e sem erros no console.
+  O título contém "Example Domain". O conteúdo é legível, bem alinhado,
+  e não há textos cortados ou sobrepostos.
